@@ -2,7 +2,6 @@ import { useState } from 'react';
 import css from './ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/selector';
-import { nanoid } from '@reduxjs/toolkit';
 import { addContact } from 'redux/operations';
 
 const ContactForm = () => {
@@ -10,7 +9,7 @@ const ContactForm = () => {
   const dispatch = useDispatch();
 
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
 
   const handlerInputChange = e => {
     const { name, value } = e.target;
@@ -18,8 +17,8 @@ const ContactForm = () => {
       case 'name':
         setName(value);
         return;
-      case 'phone':
-        setPhone(value);
+      case 'number':
+        setNumber(value);
         return;
       default:
         return;
@@ -33,10 +32,10 @@ const ContactForm = () => {
       alert(name + ' is already in contacts.');
       return;
     }
-    const newContact = { id: nanoid(), name, phone };
+    const newContact = { name, number };
     dispatch(addContact(newContact));
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   return (
@@ -62,8 +61,8 @@ const ContactForm = () => {
           className={css.input}
           onChange={handlerInputChange}
           type="tel"
-          name="phone"
-          value={phone}
+          name="number"
+          value={number}
           placeholder="099-123-45-67 - 0991234567"
           // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"

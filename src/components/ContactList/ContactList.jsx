@@ -11,6 +11,7 @@ const ContactList = () => {
   const { items, isLoading, error } = useSelector(selectContacts);
 
   useEffect(() => {
+    console.log('забираю контакти');
     dispatch(fetchContacts());
   }, [dispatch]);
 
@@ -20,11 +21,11 @@ const ContactList = () => {
     <ul className={css.list}>
       {items &&
         contactsList.map(contact => {
-          const { id, name, phone } = contact;
+          const { id, name, number } = contact;
           return (
             <li className={css.item} key={id}>
               <p>
-                {name}: {phone}
+                {name}: {number}
               </p>
 
               <button

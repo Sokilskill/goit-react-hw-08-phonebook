@@ -9,32 +9,35 @@ const contactsSlice = createSlice({
     isLoading: false,
     error: null,
   },
-  extraReducers: builder => {
-    builder.addCase(fetchContacts.pending, handlePending);
-    builder.addCase(fetchContacts.fulfilled, (state, { payload }) => {
-      state.isLoading = false;
-      state.error = null;
-      state.items = payload;
-    });
-    builder.addCase(fetchContacts.rejected, handleRejected);
+  extraReducers: builder =>
+    builder
+      .addCase(fetchContacts.pending, handlePending)
+      .addCase(fetchContacts.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = null;
+        state.items = payload;
+      })
+      .addCase(fetchContacts.rejected, handleRejected)
 
-    builder.addCase(addContact.pending, handlePending);
-    builder.addCase(addContact.fulfilled, (state, { payload }) => {
-      state.isLoading = false;
-      state.error = null;
-      state.items.unshift(payload);
-    });
-    builder.addCase(addContact.rejected, handleRejected);
+      .addCase(addContact.pending, handlePending)
+      .addCase(addContact.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
 
-    builder.addCase(deleteContact.pending, handlePending);
-    builder.addCase(deleteContact.fulfilled, (state, { payload }) => {
-      state.isLoading = false;
-      state.error = null;
-      const index = state.items.findIndex(contact => contact.id === payload.id);
-      state.items.splice(index, 1);
-    });
-    builder.addCase(deleteContact.rejected, handleRejected);
-  },
+        state.error = null;
+        state.items.unshift(payload);
+      })
+      .addCase(addContact.rejected, handleRejected)
+
+      .addCase(deleteContact.pending, handlePending)
+      .addCase(deleteContact.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = null;
+        const index = state.items.findIndex(
+          contact => contact.id === payload.id
+        );
+        state.items.splice(index, 1);
+      })
+      .addCase(deleteContact.rejected, handleRejected),
 });
 
 const contactsSliceReducer = contactsSlice.reducer;
