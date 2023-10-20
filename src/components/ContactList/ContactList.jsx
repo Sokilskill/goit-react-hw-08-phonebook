@@ -11,7 +11,6 @@ const ContactList = () => {
   const { items, isLoading, error } = useSelector(selectContacts);
 
   useEffect(() => {
-    console.log('забираю контакти');
     dispatch(fetchContacts());
   }, [dispatch]);
 
