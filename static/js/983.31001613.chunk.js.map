@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/983.31001613.chunk.js","mappings":"0JAGA,UAHiB,WACf,OAAOA,EAAAA,EAAAA,KAAA,MAAAC,SAAI,+FACb,C","sources":["pages/HomePage.jsx"],"sourcesContent":["const HomePage = () => {\n  return <h1> Вітаю в додатку Phonebook</h1>;\n};\nexport default HomePage;\n"],"names":["_jsx","children"],"sourceRoot":""}
