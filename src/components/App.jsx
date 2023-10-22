@@ -6,6 +6,7 @@ import { selectIsRefreshing } from 'redux/auth/selector';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
 import SharedLayout from './SharedLayout/SharedLayout';
+import NotFound from './NotFound/NotFound';
 
 const HomePage = lazy(() => import('pages/HomePage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
@@ -49,7 +50,7 @@ export const App = () => {
               <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
             }
           />
-          <Route path="*" element={<HomePage />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     )

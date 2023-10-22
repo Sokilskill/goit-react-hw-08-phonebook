@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/operations';
+import { Button } from '@chakra-ui/react';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,9 @@ const LoginForm = () => {
         Password
         <input type="password" name="password" />
       </label>
-      <button type="submit">Log In</button>
+      <Button type="submit" variant="changeBg">
+        Log In
+      </Button>
     </form>
   );
 };

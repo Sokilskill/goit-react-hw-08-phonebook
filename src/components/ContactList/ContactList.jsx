@@ -3,6 +3,7 @@ import css from './ContactList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts, selectVisibleContacts } from 'redux/contacts/selector';
 import { deleteContact, fetchContacts } from 'redux/contacts/operations';
+import Loader from 'components/Loader/Loader';
 
 const ContactList = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const ContactList = () => {
   }, [dispatch]);
 
   return isLoading && !error ? (
-    <p>Loading...</p>
+    <Loader padding={5} size="md" /> //пропси щоб задати розміри спінера та вертикальні паддінги контейнеру
   ) : (
     <ul className={css.list}>
       {items &&

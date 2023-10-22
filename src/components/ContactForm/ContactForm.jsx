@@ -3,6 +3,7 @@ import css from './ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/selector';
 import { addContact } from 'redux/contacts/operations';
+import { Button } from '@chakra-ui/react';
 
 const ContactForm = () => {
   const { items } = useSelector(selectContacts);
@@ -48,7 +49,7 @@ const ContactForm = () => {
           type="text"
           name="name"
           value={name}
-          placeholder="Сергій - Serhii "
+          placeholder="Noob Saibot"
           // pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           pattern="^[a-zA-Zа-яА-ЯєіїЄІЇ]+(([' \-][a-zA-Zа-яА-ЯєіїЄІЇ ])?[a-zA-Zа-яА-ЯєіїЄІЇ]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
@@ -71,9 +72,9 @@ const ContactForm = () => {
         />
       </label>
 
-      <button className={css.btnSubmit} type="submit">
+      <Button type="submit" variant="changeBg">
         Add contact
-      </button>
+      </Button>
     </form>
   );
 };

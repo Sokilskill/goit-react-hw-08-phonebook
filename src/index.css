@@ -1,7 +1,16 @@
 @import 'normalize'; /*bring in normalize.css styles*/
+
 body {
-  font-family: sans-serif;
-  line-height: 1.5;
+  margin: 0;
+  font-family: '-apple-system', BlinkMacSystemFont, 'Caveat', 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+code {
+  font-family: 'source-code-pro', Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
 h1,
@@ -16,8 +25,6 @@ p {
 
 ul,
 ol {
-  margin: 0;
-  padding: 0;
   list-style: none;
 }
 
@@ -27,7 +34,7 @@ img {
   height: auto;
 }
 
-button {
+/* button {
   display: block;
   border: none;
   border-radius: 4px;
@@ -38,10 +45,13 @@ button {
 button:hover {
   color: rgb(233, 233, 245);
   background-color: rgb(86, 86, 176);
-}
-.container {
+} */
+/* .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 30px 0;
   text-align: center;
+} */
+.active {
+  color: red;
 }

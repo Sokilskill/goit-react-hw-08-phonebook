@@ -1,15 +1,16 @@
-import { RotatingLines } from 'react-loader-spinner';
+import { Spinner, Container } from '@chakra-ui/react';
 
-const Loader = () => {
+const Loader = ({ size, padding }) => {
   return (
-    <div style={{ textAlign: 'center,' }}>
-      <RotatingLines
-        strokeColor="red"
-        strokeWidth="3"
-        width="80"
-        animationDuration="1.5"
+    <Container maxW="lg" py={padding} textAlign="center">
+      <Spinner
+        thickness="4px"
+        speed="0.65s"
+        emptyColor="gray.200"
+        color="blue.500"
+        size={size}
       />
-    </div>
+    </Container>
   );
 };
 
