@@ -13,7 +13,7 @@ const UserMenu = () => {
 
   return (
     <Flex gap="20px" justify="cente" align="center">
-      <Text fontSize="2xl"> Hello, {user.name}</Text>
+      <Text fontSize="2xl">Hello, {user.name}</Text>
       <Button onClick={hendlerLogOut} variant="changeBg">
         LogOut
       </Button>
