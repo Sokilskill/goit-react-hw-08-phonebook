@@ -18,7 +18,7 @@ const LoginForm = () => {
   };
 
   return (
-    <Flex direction="column" gap="10px" as="form" onSubmit={handleSubmit}>
+    <Flex as="form" direction="column" gap="10px" onSubmit={handleSubmit}>
       <FormLabel htmlFor="name">
         Email
         <Input type="email" name="email" id="name" />
