@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/operations';
-import { Box, FormLabel, Input, Button, Flex } from '@chakra-ui/react';
+import { FormLabel, Input, Button, Flex } from '@chakra-ui/react';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
