@@ -50,7 +50,7 @@ function WeatherForm() {
 
       const fetch = async () => {
         try {
-          const { data } = await getWeather(query);
+          const data = await getWeather(query);
           setWeather({ data: data, error: false });
         } catch (error) {
           setWeather({ ...weather, data: {}, error: true });
