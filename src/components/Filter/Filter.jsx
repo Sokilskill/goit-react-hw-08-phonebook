@@ -1,8 +1,7 @@
 import React from 'react';
-import css from './Filter.module.css';
 import { useDispatch } from 'react-redux';
 import { inputFilter } from 'redux/contacts/filterSlice';
-import { Box } from '@chakra-ui/react';
+import { Flex, FormLabel, Input } from '@chakra-ui/react';
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -13,19 +12,23 @@ const Filter = () => {
   };
 
   return (
-    <Box py={4} textAlign="center">
-      <label htmlFor="filter" className={css.label}>
+    <Flex direction={'column'} align={'center'} py={4}>
+      <FormLabel htmlFor="filter" marginInlineEnd="unset">
         Find contacts by name:
-      </label>
+      </FormLabel>
 
-      <input
+      <Input
         id="filter"
-        className={css.input}
         type="text"
         name="filter"
         onChange={handlerInputFilter}
+        bg={'white'}
+        width={'min'}
+        p={2}
+        border={'1px solid #ccc'}
+        mb="10px"
       />
-    </Box>
+    </Flex>
   );
 };
 

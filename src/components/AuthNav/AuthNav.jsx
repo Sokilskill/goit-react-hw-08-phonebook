@@ -1,4 +1,4 @@
-import { Flex } from '@chakra-ui/react';
+import { Flex, Button } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
 
 const styles = {
@@ -10,10 +10,14 @@ const AuthNav = () => {
   return (
     <Flex as="ul" {...styles}>
       <li>
-        <NavLink to="/register">Register</NavLink>
+        <Button as={NavLink} to="/register" colorScheme="red">
+          Register
+        </Button>
       </li>
       <li>
-        <NavLink to="/login">Log In</NavLink>
+        <Button as={NavLink} to="/login" colorScheme="red">
+          Log In
+        </Button>
       </li>
     </Flex>
   );

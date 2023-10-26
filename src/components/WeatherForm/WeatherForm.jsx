@@ -104,8 +104,10 @@ function WeatherForm() {
               src={`https://openweathermap.org/img/wn/${weather.data.weather[0].icon}@2x.png`}
               alt={weather.data.weather[0].description}
             />
-            {Math.round(weather.data.main.temp)}
-            <span> &deg;C </span>
+            <p>
+              {Math.round(weather.data.main.temp)}
+              <span> &deg;C </span>
+            </p>
           </Box>
           <Box>
             <Text>{weather.data.weather[0].description.toUpperCase()}</Text>
