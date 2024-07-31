@@ -50,107 +50,98 @@ export const SignUpForm = () => {
         resetForm();
       }}
     >
-      {({ errors, touched, values }) => {
-        console.log('errors: ', errors);
-        console.log('values: ', values);
-        console.log('touched: ', touched);
+      {({ errors, touched, values }) => (
+        <Flex
+          as={Form}
+          direction="column"
+          gap="10px"
+          maxW="md"
+          mx="auto"
+          my="4"
+          p="4"
+          border="1px solid"
+          borderColor="gray.300"
+          borderRadius="md"
+          autoComplete="new-password"
+        >
+          <FormControl isInvalid={errors.name && touched.name}>
+            <FormLabel htmlFor="name">Name</FormLabel>
+            <Field
+              as={Input}
+              name="name"
+              id="name"
+              type="text"
+              placeholder="Name"
+              _placeholder={{ color: 'black' }}
+              autoComplete="off"
+            />
+            <FormErrorMessage>
+              <Text color="red.500">{errors.name}</Text>
+            </FormErrorMessage>
 
-        const valid = errors.name && touched.name;
-        console.log('valid', valid);
-        return (
-          <Flex
-            as={Form}
-            direction="column"
-            gap="10px"
-            maxW="md"
-            mx="auto"
-            my="4"
-            p="4"
-            border="1px solid"
-            borderColor="gray.300"
-            borderRadius="md"
-            autoComplete="new-password"
-          >
-            <FormControl isInvalid={errors.name && touched.name}>
-              <FormLabel htmlFor="name">Name</FormLabel>
+            {!errors.name && values.name && (
+              <Text color="green.500">
+                <Icon as={MdCheckCircle} />
+                Success name
+              </Text>
+            )}
+          </FormControl>
+
+          <FormControl isInvalid={errors.email && touched.email}>
+            <FormLabel htmlFor="email">Email</FormLabel>
+            <Field
+              as={Input}
+              name="email"
+              id="email"
+              type="email"
+              placeholder="Email"
+              _placeholder={{ color: 'black' }}
+            />
+            <FormErrorMessage>
+              <Text color="red.500">{errors.email}</Text>
+            </FormErrorMessage>
+
+            {!errors.email && values.email && (
+              <Text color="green.500">
+                <Icon as={MdCheckCircle} />
+                Success email
+              </Text>
+            )}
+          </FormControl>
+
+          <FormControl isInvalid={errors.password && touched.password}>
+            <FormLabel htmlFor="password">Password</FormLabel>
+            <InputGroup>
               <Field
                 as={Input}
-                name="name"
-                id="name"
-                type="text"
-                placeholder="Name"
+                name="password"
+                id="password"
+                type={visible ? 'text' : 'password'}
+                placeholder="Password"
                 _placeholder={{ color: 'black' }}
-                autoComplete="off"
+                autoComplete="new-password"
               />
-              <FormErrorMessage>
-                <Text color="red.500">{errors.name}</Text>
-              </FormErrorMessage>
+              <InputRightElement>
+                <Button variant="ghost" onClick={() => setVisible(!visible)}>
+                  <Icon as={visible ? MdVisibility : MdVisibilityOff} />
+                </Button>
+              </InputRightElement>
+            </InputGroup>
+            <FormErrorMessage>{errors.password}</FormErrorMessage>
 
-              {!errors.name && values.name && (
-                <Text color="green.500">
-                  <Icon as={MdCheckCircle} />
-                  Success name
-                </Text>
-              )}
-            </FormControl>
+            {!errors.password && values.password && (
+              <Text color="green.500">
+                <Icon as={MdCheckCircle} />
+                Success password
+              </Text>
+            )}
+          </FormControl>
 
-            <FormControl isInvalid={errors.email && touched.email}>
-              <FormLabel htmlFor="email">Email</FormLabel>
-              <Field
-                as={Input}
-                name="email"
-                id="email"
-                type="email"
-                placeholder="Email"
-                _placeholder={{ color: 'black' }}
-                autoComplete="off"
-              />
-              <FormErrorMessage>
-                <Text color="red.500">{errors.email}</Text>
-              </FormErrorMessage>
-
-              {!errors.email && values.email && (
-                <Text color="green.500">
-                  <Icon as={MdCheckCircle} />
-                  Success email
-                </Text>
-              )}
-            </FormControl>
-
-            <FormControl isInvalid={errors.password && touched.password}>
-              <FormLabel htmlFor="password">Password</FormLabel>
-              <InputGroup>
-                <Field
-                  as={Input}
-                  name="password"
-                  id="password"
-                  type={visible ? 'text' : 'password'}
-                  placeholder="Password"
-                  _placeholder={{ color: 'black' }}
-                  autoComplete="new-password"
-                />
-                <InputRightElement>
-                  <Button variant="ghost" onClick={() => setVisible(!visible)}>
-                    <Icon as={visible ? MdVisibility : MdVisibilityOff} />
-                  </Button>
-                </InputRightElement>
-              </InputGroup>
-              <FormErrorMessage>{errors.password}</FormErrorMessage>
-
-              {!errors.password && values.password && (
-                <Text color="green.500">
-                  <Icon as={MdCheckCircle} />
-                  Success password
-                </Text>
-              )}
-            </FormControl>
-
-            <Button type="submit" colorScheme="teal" mt="4">
-              Sign Up
-            </Button>
-          </Flex>
-        );
-      }}
+          <Button type="submit" colorScheme="teal" mt="4">
+            Sign Up
+          </Button>
+        </Flex>
+      )}
     </Formik>
   );
 };
