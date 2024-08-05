@@ -32,12 +32,14 @@ const RegisterForm = () => {
       initialValues={initialValues}
       validationSchema={SignUpSchema}
       validateOnChange
-      onSubmit={(values, { resetForm }) => {
-        dispatch(register(values));
-        resetForm();
+      onSubmit={(values, { resetForm, setSubmitting }) => {
+        dispatch(register(values)).then(() => {
+          setSubmitting(false);
+          resetForm();
+        });
       }}
     >
-      {() => (
+      {({ isSubmitting }) => (
         <Flex
           as={Form}
           direction="column"
@@ -66,7 +68,12 @@ const RegisterForm = () => {
             placeholder="Enter password"
           />
 
-          <Button type="submit" colorScheme="teal" mt="4">
+          <Button
+            type="submit"
+            colorScheme="teal"
+            mt="4"
+            isLoading={isSubmitting}
+          >
             Sign Up
           </Button>
         </Flex>
